@@ -34,7 +34,8 @@ function choice(keys, message) {
     const handleKeyPress = (str, key) => {
       if (_keys.includes(key.name)) {
         _keyPressed = key.name;
-
+        process.stdin.removeListener('keypress', handleKeyPress);
+        console.log();
         rl.close(); // Close the readline interface
       }
     };
